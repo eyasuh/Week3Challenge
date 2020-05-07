@@ -9,21 +9,26 @@ public class ContactTracingApp {
 		CovidSymptom symptom = new CovidSymptom();
 
 		ArrayList<Person> personList;
+		ArrayList<Person> visitList;
 		HashMap<String, Integer> symptomMap;
 		//ask patient personal info
 		person.prompt();
 		// access info from person class or stored place
 		personList = person.getPerson();
+		visitList = person.getLocation();
 		// ask for symptoms and store result in hashmap
 		symptom.promptSymptom();
 		// access or bring the map
 		symptomMap = symptom.getSymptom();
-
+		//ask contacted person
 		person.promptContact();
+		// ask visited places
+		person.visited();
 
 		// iterate on person arraylist and symptom hashMap
 		Iterator personIterator = personList.iterator();
 		Iterator symptomItr = symptomMap.entrySet().iterator();
+		Iterator visitItr = visitList.iterator();
 
 
 		// print out results
@@ -38,7 +43,12 @@ public class ContactTracingApp {
 
 		System.out.println("\n** \tContacts: ");
 		while (personIterator.hasNext())
-		System.out.println(personIterator.next() + "\n\n***************");
+			System.out.println(personIterator.next() + "\n");
+		System.out.println("******************************************");
+
+
+		while (visitItr.hasNext())
+			System.out.println(visitItr.next() + "\n");
 
 
 	}

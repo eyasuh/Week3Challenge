@@ -8,9 +8,13 @@ public class Person {
 	private String email;
 	private String liveInCity;
 	private String liveInState;
-	private CovidSymptom symptom;
+	//private CovidSymptom symptom;
+
+	//
+
 
 	ArrayList<Person> person = new ArrayList<>();
+	ArrayList<Person> location = new ArrayList<>();
 
 	Scanner input = new Scanner(System.in);
 	//constructors
@@ -93,33 +97,151 @@ public class Person {
 		person.add(new Person(name,phone, email, liveInCity,liveInState));
 	}
 
+	public Person(String name, String phone, String email, String liveInCity, String liveInState, String seeCity, String seeState, String date) {
+		this.name = name;
+		this.phone = phone;
+		this.email = email;
+		this.liveInCity = liveInCity;
+		this.liveInState = liveInState;
+		this.seeCity = seeCity;
+		this.seeState = seeState;
+		this.date = date;
+	}
+
+	private String seeCity;
+	private String seeState;
+	private String date;
+
+	public String getSeeCity() {
+		return seeCity;
+	}
+
+	public void setSeeCity(String seeCity) {
+		this.seeCity = seeCity;
+	}
+
+	public String getSeeState() {
+		return seeState;
+	}
+
+	public void setSeeState(String seeState) {
+		this.seeState = seeState;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
 	public void promptContact() {
-
+		String answer;
 		System.out.println("Has Elsa met or run into anyone? (y/n)");
-		if(input.nextLine().equalsIgnoreCase("y")){
-			System.out.println("What is his/her name?");
-			setName( input.nextLine());
-			System.out.println("What is his/her phone number?");
-			setPhone(input.nextLine());
-			System.out.println("What is his/her email?");
-			setEmail(input.nextLine());
-			System.out.println("What city does he/her live in?");
-			setLiveInCity(input.nextLine());
-			System.out.println("What state does he/her live in?");
-			setLiveInCity(input.nextLine());
-			System.out.println("What city did Elsa see him/her?");
-			setLiveInCity(input.nextLine());
-			System.out.println("What state did Elsa see him/her?");
-			setLiveInCity(input.nextLine());
-			System.out.println("When did Elsa see him/her? (mm/dd/yyyy)");
-			setLiveInCity(input.nextLine());
-
+		answer = input.nextLine();
+		if(answer.equalsIgnoreCase("y")){
+			while(answer.equalsIgnoreCase("y")) {
+				System.out.println("What is his/her name?");
+				setName(input.nextLine());
+				System.out.println("What is his/her phone number?");
+				setPhone(input.nextLine());
+				System.out.println("What is his/her email?");
+				setEmail(input.nextLine());
+				System.out.println("What city does he/her live in?");
+				setLiveInCity(input.nextLine());
+				System.out.println("What state does he/her live in?");
+				setLiveInState(input.nextLine());
+				System.out.println("What city did Elsa see him/her?");
+				setSeeCity(input.nextLine());
+				System.out.println("What state did Elsa see him/her?");
+				setSeeState(input.nextLine());
+				System.out.println("When did Elsa see him/her? (mm/dd/yyyy)");
+				setDate(input.nextLine());
+				person.add(new Person(name,phone, email, liveInCity,liveInState,seeCity,seeState,date));
+				System.out.println("Has Elsa met or run into anyone else? (y/n)");
+				answer = input.nextLine();
+			}
 		}
 
 
-		person.add(new Person(name,phone, email, liveInCity,liveInState));
+
 	}
 
+	private String vistPlace;
+	private String visitCity;
+	private String visitState;
+	private String visitDate;
+
+	public Person(String vistPlace, String visitCity, String visitState, String visitDate) {
+		this.vistPlace = vistPlace;
+		this.visitCity = visitCity;
+		this.visitState = visitState;
+		this.visitDate = visitDate;
+	}
+
+	public String getVistPlace() {
+		return vistPlace;
+	}
+
+	public void setVistPlace(String vistPlace) {
+		this.vistPlace = vistPlace;
+	}
+
+	public String getVisitCity() {
+		return visitCity;
+	}
+
+	public void setVisitCity(String visitCity) {
+		this.visitCity = visitCity;
+	}
+
+	public String getVisitState() {
+		return visitState;
+	}
+
+	public void setVisitState(String visitState) {
+		this.visitState = visitState;
+	}
+
+	public String getVisitDate() {
+		return visitDate;
+	}
+
+	public void setVisitDate(String visitDate) {
+		this.visitDate = visitDate;
+	}
+
+	public ArrayList<Person> getLocation() {
+		return location;
+	}
+
+	public void setLocation(ArrayList<Person> location) {
+		this.location = location;
+	}
+
+	//visited place
+	public void visited() {
+		String answer;
+		System.out.println("Did Elsa visited anywhere in past 14 days? (y/n)");
+		answer = input.nextLine();
+		if(answer.equalsIgnoreCase("y")) {
+			while(answer.equalsIgnoreCase("y")) {
+				System.out.println("What is the name of a visited place?");
+				setVistPlace(input.nextLine());
+				System.out.println("Which city is Frozen Kingdom located in?");
+				setVisitCity(input.nextLine());
+				System.out.println("Which state is Frozen Kingdom located in?");
+				setVisitState(input.nextLine());
+				System.out.println("When did Elsa went to Frozen Kingdom? (mm/dd/yyyy)");
+				setVisitDate(input.nextLine());
+				location.add(( new Person(vistPlace,visitCity, visitState,visitDate)));
+				System.out.println("Did Elsa visited anywhere else in past 14 days?(y/n)");
+				answer = input.nextLine();
+			}
+
+		}
+	}
 
 	//toString
 	@Override
@@ -128,3 +250,17 @@ public class Person {
 				"\nCity: " + getLiveInCity() + "  State: " + getLiveInState();
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
