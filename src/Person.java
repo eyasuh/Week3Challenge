@@ -143,21 +143,21 @@ public class Person {
 		if(answer.equalsIgnoreCase("y")){
 			while(answer.equalsIgnoreCase("y")) {
 				System.out.println("What is his/her name?");
-				setName(input.nextLine());
+				name = input.nextLine();
 				System.out.println("What is his/her phone number?");
-				setPhone(input.nextLine());
+				phone = input.nextLine();
 				System.out.println("What is his/her email?");
-				setEmail(input.nextLine());
+				email = input.nextLine();
 				System.out.println("What city does he/her live in?");
-				setLiveInCity(input.nextLine());
+				liveInCity = input.nextLine();
 				System.out.println("What state does he/her live in?");
-				setLiveInState(input.nextLine());
+				liveInState = input.nextLine();
 				System.out.println("What city did Elsa see him/her?");
-				setSeeCity(input.nextLine());
+				seeCity = input.nextLine();
 				System.out.println("What state did Elsa see him/her?");
-				setSeeState(input.nextLine());
+				seeState = input.nextLine();
 				System.out.println("When did Elsa see him/her? (mm/dd/yyyy)");
-				setDate(input.nextLine());
+				date = input.nextLine();
 				person.add(new Person(name,phone, email, liveInCity,liveInState,seeCity,seeState,date));
 				System.out.println("Has Elsa met or run into anyone else? (y/n)");
 				answer = input.nextLine();
@@ -228,13 +228,13 @@ public class Person {
 		if(answer.equalsIgnoreCase("y")) {
 			while(answer.equalsIgnoreCase("y")) {
 				System.out.println("What is the name of a visited place?");
-				setVistPlace(input.nextLine());
+				vistPlace = input.nextLine();
 				System.out.println("Which city is Frozen Kingdom located in?");
-				setVisitCity(input.nextLine());
+				visitCity =  input.nextLine();
 				System.out.println("Which state is Frozen Kingdom located in?");
-				setVisitState(input.nextLine());
+				visitState = input.nextLine();
 				System.out.println("When did Elsa went to Frozen Kingdom? (mm/dd/yyyy)");
-				setVisitDate(input.nextLine());
+				visitDate = (input.nextLine());
 				location.add(( new Person(vistPlace,visitCity, visitState,visitDate)));
 				System.out.println("Did Elsa visited anywhere else in past 14 days?(y/n)");
 				answer = input.nextLine();
